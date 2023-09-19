@@ -1,17 +1,21 @@
 package dtos;
 
+import interfaces.PaymentInterface;
+
 import java.util.Date;
 
 public class OrderDTO{
-    public OrderDTO(BookDTO[] book, double totalValue, Date orderDate, ClientDTO client, String statusOrder) {
+    public OrderDTO(BookDTO[] book, double totalValue, Date orderDate, ClientDTO client, String statusOrder, PaymentInterface payment) {
         this.book = book;
         this.totalValue = totalValue;
         this.orderDate = orderDate;
         this.client = client;
         this.statusOrder = statusOrder;
+        this.payment = payment;
     }
 
     private BookDTO[] book;
+    private PaymentInterface payment;
     private double totalValue;
     private Date orderDate;
     private ClientDTO client;
@@ -19,6 +23,14 @@ public class OrderDTO{
 
     public BookDTO[] getBook() {
         return book;
+    }
+
+    public void setPayment(PaymentInterface payment) {
+        this.payment = payment;
+    }
+
+    public PaymentInterface getPayment() {
+        return payment;
     }
 
     public void setBook(BookDTO[] book) {
